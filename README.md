@@ -112,11 +112,11 @@ cd simple_shell
 ````
 > **Step 3:** Compile the C files in this way:
 ````
-gcc -Wall -Werror -Wextra -pedantic *.c -o cash
+gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 ````
 > **Step 4:** Run the shell
 ````
-./cash
+./hsh
 ````
 **Exiting the shell**
 When you want to exit the shell, you can use one of the following methods:
@@ -128,20 +128,20 @@ exit
 
 ## Example of Usage
 ````
-ubunto@ubuntu:~/OS/simple_shell$ gcc -Wall -Wextra -Werror -pedantic *.c -o cash
-ubunto@ubuntu:~/OS/simple_shell$ ./cash
+ubunto@ubuntu:~/OS/simple_shell$ gcc -Wall -Wextra -Werror -pedantic *.c -o hsh
+ubunto@ubuntu:~/OS/simple_shell$ ./hsh
 #cisfun$ echo Hello, This is an example
 Hello, This is an example
 #cisfun$ ls
 README.md  checkbuild.c  line_exec.c  shell.c  string.c
-buildin.c  cash		 linkpath.c   shell.h
+buildin.c  hsh		 linkpath.c   shell.h
 #cisfun$ ^C
 #cisfun$ ls -l
 total 52
 -rw-r--r-- 1 ubunto ubunto  3067 Aug 9 04:22 README.md
 -rw-r--r-- 1 ubunto ubunto  2183 Aug 9 16:17 buildin.c
 -rw-r--r-- 1 ubunto ubunto   574 Aug 9 15:59 checkbuild.c
--rwxr-xr-x 1 ubunto ubunto 18144 Aug 9 04:22 cash
+-rwxr-xr-x 1 ubunto ubunto 18144 Aug 9 04:22 hsh
 -rw-r--r-- 1 ubunto ubunto  2091 Aug 9 14:49 line_exec.c
 -rw-r--r-- 1 ubunto ubunto  199 Aug 9 14:30 linkpath.c
 -rw-r--r-- 1 ubunto ubunto   951 Aug 9 16:09 shell.c
