@@ -1,67 +1,105 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef SHELLH
+#define SHELLH
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
-#include <sys/wait.h>
+#include <fcntl.h>
 #include <sys/types.h>
-#include <errno.h>
-#include <stddef.h>
-#include <sys/stat.h>
-#include <signal.h>
+#include <sys/wait.h>
+#include "history.h"
+#include "shellvars.h"
+/*#include <string.h>*/
 
-int _putchar(char c);
-void _puts(char *str);
-int _strlen(char *s);
+/* from in.c */
+int shintmode(void);
+
+/* from _printenv.c */
+int _printenv(void);
+
+/* from cmdcall.c */
+int builtincall(char *av[]);
+int cmdcall(char *av[], char *path);
+
+/* from parser.c */
+int parseargs(char **buf);
+
+/* from errhandl.c */
+int errhandl(int status);
+
+/* from string.c */
+size_t _strlen(char *str);
+char *_strcpy(char *dest, char *src);
+int _strcmp(char *, char *);
 char *_strdup(char *str);
-char *concat_all(char *name, char *sep, char *value);
+char *_strcat(char *a, char *b);
 
-char **splitstring(char *str, const char *delim);
-void execute(char **argv);
+/* from _getenv.c and getenviron.c */
+char ***getenviron(void);
+int setallenv(char **environ, char *add);
+char *_getenv(char *avzero);
+int _setenv(char *name, char *val);
+int _unsetenv(char *name);
+char **getallenv(void);
+
+
+/* from utility.c */
+char *itos(int digits);
+char *_strchr(char *s, char c);
+int fprintstrs(int fd, char *str, ...);
+int printerr(char *);
+int linecount(int);
+
+/* from cd.c */
+int _cd(char *av[]);
+
+/* from alias.c */
+int aliascmd(char **av);
+char *getalias(char *name);
+int unsetalias(char *name);
+
+/* from shellvars.c */
+int initsvars(int ac, char **av);
+char *getsvar(char *name);
+int setsvar(char *name, char *val);
+int unsetsvar(char *name);
+ShellVar **getspecial(void);
+ShellVar **getvars(void);
+
+/* from _realloc.c */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
+/* from _strtok.c */
+char *strtok(char *str, char *delim);
 
-extern char **environ;
+/* from _getline.c */
+int _getline(char **lineptr, int fd);
 
-/**
- * struct list_path - Linked list containing PATH directories
- * @dir: directory in path
- * @p: pointer to next node
- */
-typedef struct list_path
-{
-	char *dir;
-	struct list_path *p;
-} list_path;
+char *strtokqe(char *str, char *delim, int escflags);
+
+/*from history.c*/
+int sethist(char *cmd);
+int print_hist(void);
+int exit_hist(void);
 
 
-char *_getenv(const char *name);
-list_path *add_node_end(list_path **head, char *str);
-list_path *linkpath(char *path);
-char *_which(char *filename, list_path *head);
+/* from _printenv.c */
+int _printenv(void);
+int _putchar(char c);
 
-/**
- * struct mybuild - pointer to function with corresponding buildin command
- * @name: buildin command
- * @func: execute the buildin command
- */
-typedef struct mybuild
-{
-	char *name;
-	void (*func)(char **);
-} mybuild;
 
-void(*checkbuild(char **arv))(char **arv);
+
+/*from help.c*/
+int help(char *cmd);
+
+/* from exitcleanup.c */
+void exitcleanup(char **av);
+
+/* from _atoi*/
 int _atoi(char *s);
-void exitt(char **arv);
-void env(char **arv);
-void _setenv(char **arv);
-void _unsetenv(char **arv);
 
-void freearv(char **arv);
-void free_list(list_path *head);
+char *_getpid(void);
 
 
 #endif
