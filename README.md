@@ -104,7 +104,7 @@ It is created using the **C programming Language** and it can do many functional
 You can try our shell by following these steps:
 > **Step 1:** Clone our repository using this command, (you need to have git installed on your machine first)
 ````
-git clone https://github.com/MatriMariem/simple_shell
+git clone https://github.com/tecnophille/simple_shell
 ````
 > **Step 2:** Change directory to simple_shell:
 ````
@@ -128,8 +128,8 @@ exit
 
 ## Example of Usage
 ````
-ubunto@ubuntu:~/Bureau/simple_shell$ gcc -Wall -Wextra -Werror -pedantic *.c -o cash
-ubunto@ubuntu:~/Bureau/simple_shell$ ./cash
+ubunto@ubuntu:~/OS/simple_shell$ gcc -Wall -Wextra -Werror -pedantic *.c -o cash
+ubunto@ubuntu:~/OS/simple_shell$ ./cash
 #cisfun$ echo Hello, This is an example
 Hello, This is an example
 #cisfun$ ls
@@ -148,15 +148,15 @@ total 52
 -rw-r--r-- 1 ubunto ubunto  1351 Aug 9 15:58 shell.h
 -rw-r--r-- 1 ubunto ubunto  1727 Aug 9 14:30 string.c
 #cisfun$ exit
-ubunto@ubuntu:~/Bureau/simple_shell$
+ubunto@ubuntu:~/OS/simple_shell$
 ````
 ## Bugs
 No known Bugs.
 
 ## TEAM
-[GitHub/jane]: <https://github.com/jane>
+[GitHub/jane]: <https://github.com/jayne-0>
 [GitHub/mariem]: <https://github.com/tecnophille>
-[Twitter/jane]: <https://twitter.com/jane>
+[Twitter/janeizzy240]: <https://twitter.com/janeizzy240>
 [Twitter/Tecnophille]: <https://twitter.com/tecnophille>
 
 
