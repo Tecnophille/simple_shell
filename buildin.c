@@ -4,6 +4,7 @@
  * exitt - exits the shell with or without a return of status n
  * @arv: array of words of the entered line
  */
+
 void exitt(char **arv)
 {
 	int i, n;
@@ -27,6 +28,7 @@ void exitt(char **arv)
  *@s: pointer to a string
  *Return: the integer
  */
+
 int _atoi(char *s)
 {
 	int i, integer, sign = 1;
